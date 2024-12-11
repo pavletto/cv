@@ -24,8 +24,11 @@ services:
 
   watchtower:
     image: containrrr/watchtower:latest
-    environment:
-      - WATCHTOWER_LABEL_ENABLE=true
+    command:
+      - "--interval"
+      - "30"
+      - "--label-enable"
+      - "--rolling-restart"
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
