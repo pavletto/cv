@@ -26,3 +26,9 @@ export default function Document() {
         </Html>
     );
 }
+
+export async function getStaticProps() {
+    return {
+        props: {}
+    }
+}

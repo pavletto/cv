@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   reactStrictMode: true,
+  assetPrefix: '/cv/',
+  trailingSlash: true,
 };
 
 export default nextConfig;

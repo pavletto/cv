@@ -1,0 +1,31 @@
+services:
+  traefik:
+    image: traefik:v2.10
+    command:
+      - "--api.insecure=true"
+      - "--entrypoints.web.address=:80"
+      - "--providers.docker=true"
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    restart: unless-stopped
+
+  cv:
+    image: ghcr.io/pavletto/cv:latest
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.cv.rule=PathPrefix(`/cv`)"
+      - "traefik.http.routers.cv.entrypoints=web"
+      - "traefik.http.middlewares.cv-strip.stripprefix.prefixes=/cv"
+      - "traefik.http.routers.cv.middlewares=cv-strip"
+      - "com.centurylinklabs.watchtower.enable=true"
+
+  watchtower:
+    image: containrrr/watchtower:latest
+    environment:
+      - WATCHTOWER_LABEL_ENABLE=true
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
