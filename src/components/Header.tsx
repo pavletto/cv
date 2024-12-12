@@ -7,7 +7,6 @@ export default function Header({data}: {data: Header}) {
             <div className="text-center">
                 <h1 className="text-3xl font-bold tracking-wide">{data.name}</h1>
                 <h2 className="text-xl text-gray-600 mt-2">{data.title}</h2>
-                <p className="text-sm text-gray-500 mt-1">{data.location} | <a href={`tel:${data.phone}`}>{data.phone}</a></p>
             </div>
         </header>
     );

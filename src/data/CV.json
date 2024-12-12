@@ -1,17 +1,37 @@
 {
+  "meta" : {
+    "description": "CV of Pavel Sukhodolskii, a Senior Frontend Developer based in Dubai with extensive experience in JavaScript, TypeScript, React, WebGL, WebRTC, Docker, and Go. Contributing to OpenGlobus and creating React component kits. Over 10 years in frontend development and 4 years in the drone industry.",
+    "keywords": "Pavel Sukhodolskii, Senior Frontend Developer, Frontend Engineer, JavaScript, TypeScript, React, WebGL, WebRTC, Docker, Go, Drone Industry, GIS, OpenGlobus, Dubai",
+    "author": "Pavel Sukhodolskii",
+    "robots": "index, follow",
+    "og": {
+      "title": "Pavel Sukhodolskii - Senior Frontend Developer",
+      "description": "CV of Pavel Sukhodolskii, a Senior Frontend Developer based in Dubai with extensive experience in JavaScript, TypeScript, React, WebGL, WebRTC, Docker, and Go. Contributing to OpenGlobus and creating React component kits. Over 10 years in frontend development and 4 years in the drone industry.",
+      "type": "website",
+      "url": "https://example.com/cv/pavel-sukhodolskii",
+      "image": "https://example.com/cv/profile.jpg",
+      "site_name": "Pavel Sukhodolskii CV"
+    }
+  },
   "header": {
     "name": "PAVEL SUKHODOLSKII",
     "title": "Senior Frontend Developer",
     "location": "Dubai, United Arab Emirates",
     "phone": "+971585023783",
-    "profileImage": "/cv/profile.jpg"
+    "profileImage": "profile.jpg"
   },
   "details": {
     "contact": [
       "Dubai",
       "United Arab Emirates",
-      "+971585023783",
-      "pvt.job@gmail.com"
+      {
+        "name": "+971585023783",
+        "url": "tel:+971585023783"
+      },
+      {
+        "name": "pvt.job@gmail.com",
+        "url": "mailto:pvt.job@gmail.com"
+      }
     ],
     "links": [
       {
@@ -44,7 +64,7 @@
     ]
   },
   "profile": {
-    "summary": "I am a front-end developer with over 10 years of experience in frontend development and 4 of them in the drone industry. I worked closely with video streaming, 3D, and GIS. In my free time, I actively contribute to the <a href='https://github.com/openglobus'>OpenGlobus</a> open-source project and create <a href='https://openglobus.github.io/storybook/'>React component kit</a> based on it."
+    "summary": "I am a front-end developer with over 10 years of experience in frontend development and 4 of them in the drone industry. I worked closely with video streaming, 3D, and GIS. In my free time, I actively contribute to the <a class='text-blue-600 hover:underline' href='https://github.com/openglobus'>OpenGlobus</a> open-source project and create <a class='text-blue-600 hover:underline' href='https://openglobus.github.io/storybook/'>React component kit</a> based on it."
   },
   "educations": [
     {
