@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  assetPrefix: '/cv/',
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   output: 'export',
   images: {
     unoptimized: true,

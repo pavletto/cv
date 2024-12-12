@@ -15,7 +15,7 @@ interface Header {
 }
 
 interface Details {
-    contact: string[];
+    contact: (string|Link)[];
     links: Link[];
     skills: string[];
     languages: string[];
@@ -42,3 +42,20 @@ interface Education {
     degree: string;
 }
 declare const resumeData: ResumeData;
+
+interface Meta {
+    description: string;
+    keywords: string
+    author: string
+    robots: string
+    og: OpengraphMeta
+}
+
+interface OpengraphMeta {
+    title: string
+    description: string
+    type: string
+    url: string
+    image: string
+    site_name: string
+}
