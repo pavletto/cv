@@ -13,6 +13,9 @@ services:
 
   cv:
     image: ghcr.io/pavletto/cv:latest
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
