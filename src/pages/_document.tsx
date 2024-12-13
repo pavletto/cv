@@ -1,5 +1,7 @@
-import {Head, Html, Main, NextScript} from "next/document";
-
+import {Head, Html, Main} from "next/document";
+import React from "react";
+import Meta from "@/components/Meta";
+import cv from "@/data/CV.json";
 export default function Document() {
 
     return (
@@ -10,7 +12,7 @@ export default function Document() {
                 <link rel="shortcut icon" href="favicon/favicon.ico"/>
                 <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png"/>
                 <link rel="manifest" href="favicon/site.webmanifest"/>
-                {/*<Meta {...cv.meta}/>*/}
+                <Meta {...cv.meta}/>
             </Head>
             <title>CV Pavel Sukhodolskii</title>
             <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96"/>
@@ -20,9 +22,9 @@ export default function Document() {
             <link rel="manifest" href="favicon/site.webmanifest"/>
 
 
-            <body className="antialiased bg-slate-200	">
+            <body className="antialiased bg-slate-200">
             <Main/>
-            <NextScript/>
+            {/*<NextScript/>*/}
             </body>
         </Html>
     );
