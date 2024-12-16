@@ -2,7 +2,7 @@
   "ci": {
     "collect": {
       "url": ["http://localhost:3000"],
-      "startServerCommand": "npm run build && sh ./docker/cleanup.sh ./out/index.html && npx -y serve out -p 3000",
+      "startServerCommand": "npm run build && node ./postprocess.js && npx -y serve out -p 3000",
       "startServerReadyPattern": "ready on",
       "numberOfRuns": 3
     },
