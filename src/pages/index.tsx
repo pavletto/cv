@@ -9,15 +9,19 @@ const robotoCondensed = localFont({
     variable: "--font-roboto-condensed",
     weight: "100 350 900",
 });
-
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID
 export default function ResumePage() {
     return (
         <div
-            className={`${robotoCondensed.variable} font-[family-name:var(--font-roboto-condensed)] rounded-lg max-w-6xl mx-auto my-0 sm:my-4 bg-white dark:bg-gray-800 p-10 shadow-md dark:shadow-gray-600 flex flex-col space-y-6 print:p-0 print:shadow-none print:max-w-full print:text-sm print:m-0`}>
+            className={`${robotoCondensed.variable} font-[family-name:var(--font-roboto-condensed)] sm:rounded-lg max-w-6xl mx-auto my-0 sm:my-4 bg-white dark:bg-gray-800 p-10 shadow-md dark:shadow-gray-600 flex flex-col space-y-6 print:p-0 print:shadow-none print:max-w-full print:text-sm print:m-0`}>
             <Header data={cv.header}/>
             <main className="flex flex-col-reverse sm:flex-row">
                 <Side {...cv.details}/>
                 <Main {...cv}/>
+                {GTM_ID ?
+                        <iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+                                height="0" width="0" className="hidden" ></iframe>
+                     : <></>}
             </main>
         </div>
     );
