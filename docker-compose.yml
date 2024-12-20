@@ -19,10 +19,7 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.cv.rule=PathPrefix(`/cv`)"
       - "traefik.http.routers.cv.entrypoints=web"
-      - "traefik.http.middlewares.cv-strip.stripprefix.prefixes=/cv"
-      - "traefik.http.routers.cv.middlewares=cv-strip"
       - "com.centurylinklabs.watchtower.enable=true"
 
   watchtower:

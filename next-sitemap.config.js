@@ -8,14 +8,15 @@ module.exports = {
         policies: [
             {
                 userAgent: '*',
-                disallow: ['/cv/_next/', '/cv/static/'],
+                disallow: ['/_next/', '/static/'],
             },
             {
                 userAgent: '*',
-                allow: ['/cv/'],
+                allow: ['/'],
             },
         ],
         sitemap: `${siteUrl}/sitemap.xml`,
     },
     exclude: ['/404'],
+    outDir: './out',
 };
