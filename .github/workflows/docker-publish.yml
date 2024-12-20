@@ -13,8 +13,9 @@ jobs:
     env:
       NEXT_PUBLIC_BASE_PATH: ${{ vars.NEXT_PUBLIC_BASE_PATH }}
       NEXT_PUBLIC_ASSET_PATH: ${{ vars.NEXT_PUBLIC_ASSET_PATH }}
-      NEXT_PUBLIC_GTM_ID: ${{ vars.NEXT_PUBLIC_GTM_ID }}
+      NEXT_PUBLIC_GOOGLE_VERIFICATION: ${{ vars.NEXT_PUBLIC_GOOGLE_VERIFICATION }}
       NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID }}
+      NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -27,8 +28,9 @@ jobs:
           docker build \
             --build-arg NEXT_PUBLIC_BASE_PATH=$NEXT_PUBLIC_BASE_PATH \
             --build-arg NEXT_PUBLIC_ASSET_PATH=$NEXT_PUBLIC_ASSET_PATH \
-            --build-arg NEXT_PUBLIC_GTM_ID=$NEXT_PUBLIC_GTM_ID \
+            --build-arg NEXT_PUBLIC_GOOGLE_VERIFICATION=$NEXT_PUBLIC_GOOGLE_VERIFICATION \
             --build-arg NEXT_PUBLIC_GA_ID=$NEXT_PUBLIC_GA_ID \
+            --build-arg NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL \
             -t ghcr.io/${{ github.repository }}:latest .
 
       - name: Login to GHCR
@@ -51,4 +53,3 @@ jobs:
       - run: npm run lhci:mobile
     env:
       LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-      NEXT_PUBLIC_GTM_ID: ${{ vars.NEXT_PUBLIC_GTM_ID }}

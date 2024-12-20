@@ -3,10 +3,12 @@ export default function Meta({
                                  keywords,
                                  author,
                                  robots,
+                                 google_verification,
                                  og
                              }: Meta) {
     return (
         <>
+            <meta name="google-site-verification" content={google_verification}/>
             <meta name="description" content={description}/>
             <meta name="keywords" content={keywords}/>
             <meta name="author" content={author}/>

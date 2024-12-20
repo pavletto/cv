@@ -2,14 +2,13 @@ import Header from '../components/Header';
 import Side from '../components/Side';
 import Main from '../components/Main';
 import localFont from "next/font/local";
-import cv from "../data/CV.json";
+import cv from "../data/CV";
 
 const robotoCondensed = localFont({
     src: "./fonts/RobotoCondensed.woff2",
     variable: "--font-roboto-condensed",
     weight: "100 350 900",
 });
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID
 export default function ResumePage() {
     return (
         <div
@@ -18,10 +17,6 @@ export default function ResumePage() {
             <main className="flex flex-col-reverse sm:flex-row">
                 <Side {...cv.details}/>
                 <Main {...cv}/>
-                {GTM_ID ?
-                        <iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-                                height="0" width="0" className="hidden" ></iframe>
-                     : <></>}
             </main>
         </div>
     );

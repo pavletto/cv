@@ -1,7 +1,7 @@
 import {Head, Html, Main, NextScript} from "next/document";
 import React from "react";
 import Meta from "@/components/Meta";
-import cv from "@/data/CV.json";
+import cv from "@/data/CV";
 export default function Document() {
     const isDev = process.env.NODE_ENV === "development";
     return (
@@ -14,7 +14,7 @@ export default function Document() {
                 <link rel="manifest" href="favicon/site.webmanifest"/>
                 <Meta {...cv.meta}/>
             </Head>
-            <title>CV Pavel Sukhodolskii</title>
+            <title>{cv.title}</title>
             <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png"/>
             <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png"/>
             <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png"/>

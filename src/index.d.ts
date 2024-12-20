@@ -48,6 +48,7 @@ interface Meta {
     keywords: string
     author: string
     robots: string
+    google_verification?: string
     og: OpengraphMeta
 }
 
@@ -55,7 +56,7 @@ interface OpengraphMeta {
     title: string
     description: string
     type: string
-    url: string
+    url?: string
     image: string
     site_name: string
 }
