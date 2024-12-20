@@ -10,7 +10,6 @@ interface Header {
     name: string;
     title: string;
     location: string;
-    phone: string;
     profileImage: string;
 }
 

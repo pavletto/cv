@@ -20,7 +20,6 @@ const data = {
         name: "PAVEL SUKHODOLSKII",
         title: "Senior Frontend Developer",
         location: "Dubai, United Arab Emirates",
-        phone: "+971585023783",
         profileImage: "profile.jpg"
     },
     details: {
@@ -28,12 +27,8 @@ const data = {
             "Dubai",
             "United Arab Emirates",
             {
-                name: "+971585023783",
-                url: "tel:+971585023783"
-            },
-            {
-                name: "pvt.job@gmail.com",
-                url: "mailto:pvt.job@gmail.com"
+                name: "pavel@sukhodolskii.com",
+                url: "mailto:pavel@sukhodolskii.com"
             }
         ],
         links: [
