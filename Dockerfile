@@ -1,5 +1,4 @@
-FROM node:22.12-alpine AS builder
-RUN apk add --no-cache perl
+FROM node:22-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
@@ -18,8 +17,6 @@ ENV NEXT_PUBLIC_GOOGLE_VERIFICATION=$NEXT_PUBLIC_GOOGLE_VERIFICATION
 
 COPY . .
 RUN npm run build
-RUN chmod +x ./postprocess.js
-RUN node postprocess.js
 
 FROM nginx:alpine
 COPY --from=builder /app/docker/nginx.conf /etc/nginx/conf.d/default.conf

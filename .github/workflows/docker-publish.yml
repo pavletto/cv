@@ -26,12 +26,14 @@ jobs:
       - name: Build Docker image
         run: |
           docker build \
+            --no-cache \
             --build-arg NEXT_PUBLIC_BASE_PATH=$NEXT_PUBLIC_BASE_PATH \
             --build-arg NEXT_PUBLIC_ASSET_PATH=$NEXT_PUBLIC_ASSET_PATH \
             --build-arg NEXT_PUBLIC_GOOGLE_VERIFICATION=$NEXT_PUBLIC_GOOGLE_VERIFICATION \
             --build-arg NEXT_PUBLIC_GA_ID=$NEXT_PUBLIC_GA_ID \
             --build-arg NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL \
-            -t ghcr.io/${{ github.repository }}:latest .
+            -t ghcr.io/${{ github.repository }}:latest . \
+            --progress=plain
 
       - name: Login to GHCR
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
