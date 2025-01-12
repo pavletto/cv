@@ -1,5 +1,4 @@
 import Header from '../components/Header';
-import Side from '../components/Side';
 import Main from '../components/Main';
 import localFont from "next/font/local";
 import cv from "../data/CV";
@@ -15,7 +14,6 @@ export default function ResumePage() {
             className={`${robotoCondensed.variable} font-[family-name:var(--font-roboto-condensed)] sm:rounded-lg max-w-6xl mx-auto my-0 sm:my-4 bg-white dark:bg-gray-800 p-10 shadow-md dark:shadow-gray-600 flex flex-col space-y-6 print:p-0 print:shadow-none print:max-w-full print:text-sm print:m-0`}>
             <Header data={cv.header}/>
             <main className="flex flex-col-reverse sm:flex-row">
-                <Side {...cv.details}/>
                 <Main {...cv}/>
             </main>
         </div>
