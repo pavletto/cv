@@ -8,7 +8,7 @@ const data = {
         robots: "index, follow",
         google_verification: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
         og: {
-            title: "Pavel Sukhodolskii - Senior Engineer Developer",
+            title: "Pavel Sukhodolskii - Senior Fullstack Engineer",
             description: "CV of Pavel Sukhodolskii, a Senior Frontend Developer based in Dubai with extensive experience in JavaScript, TypeScript, React, WebGL, WebRTC, Docker, and Go. Contributing to OpenGlobus and creating React component kits. Over 10 years in frontend development and 4 years in the drone industry.",
             type: "website",
             url: process.env.NEXT_PUBLIC_SITE_URL,
@@ -18,7 +18,7 @@ const data = {
     },
     header: {
         name: "PAVEL SUKHODOLSKII",
-        title: "Senior Engineer Developer",
+        title: "Senior Fullstack Engineer",
         location: "Dubai, United Arab Emirates",
         profileImage: "profile.jpg"
     },
