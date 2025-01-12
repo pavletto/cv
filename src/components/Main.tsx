@@ -3,27 +3,27 @@ import Job from './Job';
 export default function Main({profile,details, employmentHistory, projects, educations}: {details:Details,educations: Education[], profile: Profile, employmentHistory: EmploymentHistory[], projects: Project[]}) {
     return (
         <div className="w-full pl-4">
-                <div className="mb-6 text-center">
-                    <ul className="flex justify-around flex-col sm:flex-row">
-                        {details.contact.map((detail, index) => (
-                            (typeof detail === "string") ?
-                                <li key={index}>{detail}</li> :
-                                <li key={index}><a href={detail.url} target="_blank"
-                                                   className="text-blue-600 hover:underline">{detail.name}</a></li>
-                        ))}
-                    </ul>
-                </div>
-            <section className="mb-4"><h3
-                className="text-xl font-semibold border-b-2 border-black dark:border-gray-300 pb-2 mb-4">SKILLS</h3>
-                            {
-                                details.skills.join(', ')
-                            }
-            </section>
+            <div className="mb-6 text-center">
+                <ul className="flex justify-around flex-col sm:flex-row">
+                    {details.contact.map((detail, index) => (
+                        (typeof detail === "string") ?
+                            <li key={index}>{detail}</li> :
+                            <li key={index}><a href={detail.url} target="_blank"
+                                               className="text-blue-600 hover:underline">{detail.name}</a></li>
+                    ))}
+                </ul>
+            </div>
             <section className="mb-4">
-                <h3 className="text-xl font-semibold border-b-2 border-black dark:border-gray-300 pb-2 mb-4">PROFILE</h3>
+                <h3 className="text-xl font-semibold border-b-2 border-black dark:border-gray-300 pb-2 mb-4">SUMMARY</h3>
                 <p className="text-black dark:text-white" dangerouslySetInnerHTML={{__html: profile.summary}}></p>
             </section>
-            <section>
+            <section className="mb-4"><h3
+                className="text-xl font-semibold border-b-2 border-black dark:border-gray-300 pb-2 mb-4">SKILLS</h3>
+                {
+                    details.skills.join(', ')
+                }
+            </section>
+            <section  className="mb-4">
                 <h3 className="text-xl font-semibold border-b-2 border-black dark:border-gray-300 pb-2 mb-4">EMPLOYMENT
                     HISTORY</h3>
                 {employmentHistory.map((job, index) => (
@@ -36,7 +36,7 @@ export default function Main({profile,details, employmentHistory, projects, educ
                     <Job key={index} title={project.title} duration={project.duration} duties={project.duties}/>
                 ))}
             </section>
-            <section>
+            <section className="mb-4">
                 <h3 className="text-xl font-semibold border-b-2 border-black dark:border-gray-300 pb-2 mb-4">EDUCATION</h3>
                 {educations.map(({degree, title, duration}, index) => (
                     <div key={index} className="mb-6">
