@@ -26,10 +26,6 @@ const data = {
         contact: [
             "Dubai, United Arab Emirates",
             {
-                name: "+971 58 502 3783",
-                url: "tel:+971585023783"
-            },
-            {
                 name: "sukhodolskii.com",
                 url: "https://sukhodolskii.com"
             },
