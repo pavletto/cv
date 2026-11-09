@@ -1,21 +1,22 @@
-import Header from '../components/Header';
-import Main from '../components/Main';
 import localFont from "next/font/local";
-import cv from "../data/CV";
+import Header from "@/components/Header";
+import Main from "@/components/Main";
+import Meta from "@/components/Meta";
+import cv from "@/data/CV";
 
 const robotoCondensed = localFont({
     src: "./fonts/RobotoCondensed.woff2",
-    variable: "--font-roboto-condensed",
-    weight: "100 350 900",
+    weight: "100 900",
 });
+
 export default function ResumePage() {
     return (
-        <div
-            className={`${robotoCondensed.variable} font-[family-name:var(--font-roboto-condensed)] sm:rounded-lg max-w-6xl mx-auto my-0 sm:my-4 bg-white dark:bg-gray-800 p-10 shadow-md dark:shadow-gray-600 flex flex-col space-y-6 print:p-0 print:shadow-none print:max-w-full print:text-sm print:m-0`}>
-            <Header data={cv.header}/>
-            <main className="flex flex-col-reverse sm:flex-row">
+        <>
+            <Meta {...cv.meta}/>
+            <div className={`${robotoCondensed.className} mx-auto max-w-4xl space-y-6 bg-white p-5 leading-relaxed text-slate-900 sm:my-6 sm:rounded-lg sm:p-10 sm:shadow-sm dark:bg-slate-900 dark:text-slate-100 print:m-0 print:max-w-none print:space-y-3 print:p-0 print:text-xs print:leading-snug print:shadow-none`}>
+                <Header {...cv.header}/>
                 <Main {...cv}/>
-            </main>
-        </div>
+            </div>
+        </>
     );
 }

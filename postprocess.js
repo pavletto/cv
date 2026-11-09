@@ -3,7 +3,7 @@ const path = require('path');
 
 const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID;
 
-const GA_SCRIPT = `
+const GA_SCRIPT = GA_TRACKING_ID && /^[A-Za-z0-9-]+$/.test(GA_TRACKING_ID) ? `
   <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -11,7 +11,7 @@ const GA_SCRIPT = `
     gtag('js', new Date());
     gtag('config', '${GA_TRACKING_ID}');
   </script>
-`;
+` : '';
 
 const EXPORT_DIR = 'out';
 
@@ -38,23 +38,22 @@ function processHtmlFiles(files) {
 
             content = content.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
 
-            if (content.includes('</body>')) {
+            if (GA_SCRIPT && content.includes('</body>')) {
                 content = content.replace('</body>', `${GA_SCRIPT}\n</body>`);
-            } else {
-                console.warn(`The </body> tag was not found in the file: ${file}`);
             }
 
             fs.writeFileSync(file, content, 'utf8');
             console.log(`Processed file: ${file}`);
         } catch (err) {
             console.error(`Error processing file ${file}:`, err);
+            process.exitCode = 1;
         }
     });
 }
 
 function main() {
     if (!fs.existsSync(EXPORT_DIR)) {
-        console.error(`Export directory "${EXPORT_DIR}" not found. Run "next export" before executing this script.`);
+        console.error(`Export directory "${EXPORT_DIR}" not found. Run "next build" before executing this script.`);
         process.exit(1);
     }
 

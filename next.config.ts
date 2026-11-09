@@ -8,14 +8,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  distDir: 'out',
-  webpack: (config, { isServer }) => {
-    // Удаляем Webpack-бандлы, если нет серверного кода
-    if (!isServer) {
-      config.resolve.fallback = {};
-    }
-    return config;
-  },
 };
 
 export default nextConfig;

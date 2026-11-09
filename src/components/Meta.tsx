@@ -1,26 +1,19 @@
-export default function Meta({
-                                 description,
-                                 keywords,
-                                 author,
-                                 robots,
-                                 google_verification,
-                                 og
-                             }: Meta) {
-    return (
-        <>
-            <meta name="google-site-verification" content={google_verification}/>
-            <meta name="description" content={description}/>
-            <meta name="keywords" content={keywords}/>
-            <meta name="author" content={author}/>
-            <meta name="robots" content={robots}/>
+import Head from "next/head";
 
-            <meta property="og:title" content={og.title}/>
-            <meta property="og:description" content={og.description}/>
-            <meta property="og:type" content={og.type}/>
-            <meta property="og:url" content={og.url}/>
-            <meta property="og:image" content={og.image}/>
-            <meta property="og:site_name" content={og.site_name}/>
-        </>
-    )
-        ;
+export default function Meta({ title, description, siteUrl, image, verification }: ResumeMeta) {
+    const canonical = `${siteUrl}/`;
+
+    return (
+        <Head>
+            <title>{title}</title>
+            <meta name="description" content={description}/>
+            <link rel="canonical" href={canonical}/>
+            {verification && <meta name="google-site-verification" content={verification}/>}
+            <meta property="og:title" content={title}/>
+            <meta property="og:description" content={description}/>
+            <meta property="og:type" content="website"/>
+            <meta property="og:url" content={canonical}/>
+            <meta property="og:image" content={image}/>
+        </Head>
+    );
 }
